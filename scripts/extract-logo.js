@@ -1,48 +1,49 @@
-// Extract the "GREAT ESCAPE" logo from the no-venue-fee promo poster.
-// The poster is 720x1284 (portrait phone graphic). Logo + tagline sit
-// roughly in the lower-middle, on a white background with sparse
-// multi-coloured dots scattered across the canvas.
+// Extract the dark-mode "GREAT ESCAPE" logo (white wordmark + colored
+// letter dots on a near-black bg). The source uses a hand-drawn / brushy
+// font where letter edges are mid-grey, so a simple "drop dark" threshold
+// either keeps too much background or eats the letter edges.
 //
-// Strategy:
-//   1. Crop the logo region (centred, lower-middle).
-//   2. Convert to RGBA and threshold near-white pixels to alpha=0.
-//   3. Trim transparent edges so the output is tight to the artwork.
-//   4. Write public/logo.png.
+// Better rule: keep a pixel if it's BRIGHT (max RGB high — the white
+// wordmark) OR SATURATED (color channels far apart — the yellow / green /
+// blue / red dots). Everything else is background.
 
 const sharp = require("sharp");
 const path = require("path");
 
-const SRC = path.join(__dirname, "..", "public", "images", "no-venue-fee.jpg");
+const SRC = path.join(__dirname, "..", "public", "images", "logo-source-dark.jpg");
 const DST = path.join(__dirname, "..", "public", "logo.png");
 
-const CROP = { left: 80, top: 875, width: 560, height: 270 };
-
-const WHITE_LO = 200; // anything brighter than this on R, G, and B becomes transparent
-const WHITE_HI = 235;
+const BRIGHT_HI = 200; // fully opaque above this
+const BRIGHT_LO = 110; // fully transparent below this (if also unsaturated)
+const SAT_MIN = 50;    // minimum colour saturation to count as a "logo dot"
 
 (async () => {
-  const cropped = await sharp(SRC)
-    .extract(CROP)
+  const { data, info } = await sharp(SRC)
     .ensureAlpha()
     .raw()
     .toBuffer({ resolveWithObject: true });
 
-  const { data, info } = cropped;
   const { width, height, channels } = info;
   if (channels !== 4) throw new Error(`Expected 4 channels, got ${channels}`);
 
   for (let i = 0; i < data.length; i += 4) {
-    const r = data[i];
-    const g = data[i + 1];
-    const b = data[i + 2];
-    const minRGB = Math.min(r, g, b);
-    if (minRGB >= WHITE_HI) {
-      data[i + 3] = 0; // fully transparent
-    } else if (minRGB >= WHITE_LO) {
-      // Smooth transition for sub-pixel-antialiased edges
-      const t = (minRGB - WHITE_LO) / (WHITE_HI - WHITE_LO);
-      data[i + 3] = Math.round((1 - t) * 255);
+    const r = data[i], g = data[i + 1], b = data[i + 2];
+    const max = Math.max(r, g, b);
+    const min = Math.min(r, g, b);
+    const sat = max - min;
+
+    let alpha;
+    if (sat >= SAT_MIN && max >= 80) {
+      alpha = 255; // saturated colour (logo dot)
+    } else if (max >= BRIGHT_HI) {
+      alpha = 255; // fully bright (white wordmark)
+    } else if (max <= BRIGHT_LO) {
+      alpha = 0; // dark background
+    } else {
+      // Smooth fade through brushy edges
+      alpha = Math.round(((max - BRIGHT_LO) / (BRIGHT_HI - BRIGHT_LO)) * 255);
     }
+    data[i + 3] = alpha;
   }
 
   await sharp(data, { raw: { width, height, channels: 4 } })

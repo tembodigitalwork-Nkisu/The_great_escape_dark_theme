@@ -16,14 +16,13 @@ export default function HoursStrip({ heading = "When we're open" }) {
   const [todayIdx, setTodayIdx] = useState(-1);
 
   useEffect(() => {
-    // JS getDay(): 0 = Sun ... 6 = Sat. Our array starts on Mon.
     const js = new Date().getDay();
     setTodayIdx(js === 0 ? 6 : js - 1);
   }, []);
 
   return (
-    <section className="relative py-16 sm:py-20 bg-escape-blue text-cream-50">
-      <div className="absolute inset-0 dots-bright opacity-20 pointer-events-none" />
+    <section className="relative py-16 sm:py-20 bg-escape-blue text-cream-50 border-y-2 border-ink-950">
+      <div className="absolute inset-0 dots-bright opacity-25 pointer-events-none" />
       <div className="relative mx-auto max-w-6xl px-4 sm:px-6">
         <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
           <div>
@@ -32,7 +31,7 @@ export default function HoursStrip({ heading = "When we're open" }) {
             </span>
             <h2 className="mt-3 font-display font-bold text-3xl sm:text-4xl tracking-tight">{heading}</h2>
           </div>
-          <p className="text-cream-50/80 text-sm max-w-md">
+          <p className="text-cream-50/85 text-sm max-w-md">
             Closed Monday and Tuesday. Built around after-school, evening, and weekend traffic.
           </p>
         </div>
@@ -44,12 +43,12 @@ export default function HoursStrip({ heading = "When we're open" }) {
             return (
               <div
                 key={d.abbr}
-                className={`rounded-xl border-2 border-ink-950 p-4 ${
+                className={`rounded-xl border-2 p-4 ${
                   isToday
-                    ? "bg-escape-yellow text-ink-950 shadow-pop"
+                    ? "bg-escape-yellow text-ink-950 border-ink-950 shadow-pop"
                     : closed
-                    ? "bg-cream-50/10 text-cream-50/60"
-                    : "bg-cream-50 text-ink-950"
+                    ? "bg-ink-950/40 text-cream-50/55 border-cream-50/15"
+                    : "bg-ink-950/60 text-cream-50 border-cream-50/25"
                 }`}
               >
                 <p className="text-xs font-bold uppercase tracking-wider">

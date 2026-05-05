@@ -8,22 +8,10 @@ export const metadata = {
 };
 
 const stack = [
-  {
-    title: "PGA-licensed golf",
-    blurb: "The same simulator software that pros train on. Real courses, real ballistics, indoor turf.",
-  },
-  {
-    title: "Real car cockpits",
-    blurb: "VR racing isn't a wheel and a chair — our cockpits move with the cars. Force feedback included.",
-  },
-  {
-    title: "Most advanced VR in Zambia",
-    blurb: "Rotating library of headset titles. Standalone bay so you can play hard without bumping into anything (much).",
-  },
-  {
-    title: "Auto-scoring bowling",
-    blurb: "Full alley with automatic scoring — no maths required between frames.",
-  },
+  { title: "PGA-licensed golf", blurb: "The same simulator software that pros train on. Real courses, real ballistics, indoor turf." },
+  { title: "Real car cockpits", blurb: "VR racing isn't a wheel and a chair — our cockpits move with the cars. Force feedback included." },
+  { title: "Most advanced VR in Zambia", blurb: "Rotating library of headset titles. Standalone bay so you can play hard without bumping into anything (much)." },
+  { title: "Auto-scoring bowling", blurb: "Full alley with automatic scoring — no maths required between frames." },
 ];
 
 export default function AboutPage() {
@@ -42,13 +30,13 @@ export default function AboutPage() {
 
       <section className="relative py-12 sm:py-16">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 grid lg:grid-cols-5 gap-10 items-start">
-          <div className="lg:col-span-2 rounded-3xl bg-ink-950 text-cream-50 border-2 border-ink-950 p-8 shadow-pop relative overflow-hidden">
-            <div className="absolute inset-0 dots-bright opacity-15 pointer-events-none" />
-            <p className="relative text-[10px] font-bold uppercase tracking-[0.3em] text-escape-yellow">Mission</p>
+          <div className="lg:col-span-2 rounded-3xl bg-escape-yellow text-ink-950 border-2 border-ink-950 p-8 shadow-pop relative overflow-hidden">
+            <div className="absolute -top-10 -right-10 h-32 w-32 rounded-full bg-cream-50/30" />
+            <p className="relative text-[10px] font-bold uppercase tracking-[0.3em] opacity-80">Mission</p>
             <p className="relative mt-3 font-display text-2xl sm:text-3xl font-bold leading-tight">
               "Zambia's most advanced gaming arena."
             </p>
-            <p className="relative mt-5 text-cream-50/80">
+            <p className="relative mt-5 text-ink-950/80">
               An indoor, all-weather, all-ages place where families, teens, and adults can each find something
               they want to do — and where the VR and simulator kit is genuinely good, not gimmicks.
             </p>
@@ -56,33 +44,34 @@ export default function AboutPage() {
 
           <div className="lg:col-span-3 grid grid-cols-1 sm:grid-cols-2 gap-4">
             {stack.map((s) => (
-              <article key={s.title} className="rounded-3xl border-2 border-ink-950 bg-cream-50 p-6 shadow-popSm">
-                <h3 className="font-display font-bold text-lg text-escape-blue">{s.title}</h3>
-                <p className="mt-2 text-sm text-ink-950/75">{s.blurb}</p>
+              <article key={s.title} className="rounded-3xl border border-cream-50/15 bg-ink-900 p-6 hover:border-escape-yellow/60 transition">
+                <h3 className="font-display font-bold text-lg text-escape-yellow">{s.title}</h3>
+                <p className="mt-2 text-sm text-cream-50/75">{s.blurb}</p>
               </article>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="relative py-16 sm:py-20 bg-escape-yellow border-y-2 border-ink-950">
-        <div className="mx-auto max-w-6xl px-4 sm:px-6 text-center">
+      <section className="relative py-16 sm:py-20 bg-escape-blue text-cream-50 border-y-2 border-ink-950">
+        <div className="absolute inset-0 dots-bright opacity-20 pointer-events-none" />
+        <div className="relative mx-auto max-w-6xl px-4 sm:px-6 text-center">
           <h2 className="font-display font-bold text-3xl sm:text-5xl tracking-tight">
             Walk in. Play your way.
           </h2>
-          <p className="mt-4 max-w-xl mx-auto text-ink-950/80">
+          <p className="mt-4 max-w-xl mx-auto text-cream-50/85">
             Entry is free. Buy tokens, pick what you want to play, and build your own afternoon.
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-3">
             <Link
               href="/attractions"
-              className="rounded-full px-6 py-3 font-bold bg-ink-950 text-cream-50 border-2 border-ink-950 shadow-pop hover:translate-y-[3px] hover:shadow-popSm transition"
+              className="rounded-full px-6 py-3 font-bold bg-escape-yellow text-ink-950 border-2 border-ink-950 shadow-pop hover:translate-y-[3px] hover:shadow-popSm transition"
             >
               See what's on
             </Link>
             <Link
               href="/contact"
-              className="rounded-full px-6 py-3 font-bold bg-cream-50 border-2 border-ink-950 hover:bg-ink-950 hover:text-cream-50 transition"
+              className="rounded-full px-6 py-3 font-bold bg-ink-950 text-cream-50 border-2 border-cream-50 hover:bg-cream-50 hover:text-ink-950 transition"
             >
               Find us
             </Link>

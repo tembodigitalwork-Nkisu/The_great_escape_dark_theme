@@ -25,13 +25,13 @@ export default function ContactPage() {
 
       <section className="relative py-12 sm:py-16">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 grid lg:grid-cols-5 gap-6">
-          <div className="lg:col-span-3 rounded-3xl border-2 border-ink-950 bg-cream-50 shadow-pop overflow-hidden">
+          <div className="lg:col-span-3 rounded-3xl border-2 border-ink-950 bg-ink-900 shadow-pop overflow-hidden">
             <div className="aspect-[4/3] relative">
               <LazyMap />
             </div>
             <div className="p-5 sm:p-6 space-y-2 text-sm border-t-2 border-ink-950">
-              <p className="font-display font-bold text-lg">The Great Escape</p>
-              <p className="text-ink-950/75">
+              <p className="font-display font-bold text-lg text-cream-50">The Great Escape</p>
+              <p className="text-cream-50/75">
                 Longacres Shopping Mall (KK Mall)<br />
                 Alick Nkhata Road, Lusaka, Zambia
               </p>
@@ -39,7 +39,7 @@ export default function ContactPage() {
                 href="https://www.google.com/maps/search/?api=1&query=Longacres+Shopping+Mall+Lusaka"
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center gap-1 text-escape-blue font-bold hover:underline"
+                className="inline-flex items-center gap-1 text-escape-yellow font-bold hover:underline"
               >
                 Open in Google Maps →
               </a>
@@ -47,7 +47,7 @@ export default function ContactPage() {
           </div>
 
           <div className="lg:col-span-2 space-y-5">
-            <ContactCard accent="bg-escape-yellow" heading="Talk to us">
+            <ContactCard accent="bg-escape-yellow text-ink-950" heading="Talk to us">
               <ContactRow icon={<PhoneIcon />} label="Main / WhatsApp">
                 <a href="tel:+260973572871" className="font-bold hover:underline">+260 97 357 2871</a>
               </ContactRow>
@@ -88,7 +88,7 @@ export default function ContactPage() {
 
       <HoursStrip heading="Hours" />
 
-      <section className="relative py-16 sm:py-24 bg-cream-100 border-y-2 border-ink-950">
+      <section className="relative py-16 sm:py-24 bg-ink-900 border-y border-cream-50/10">
         <div className="mx-auto max-w-3xl px-4 sm:px-6">
           <SectionHeader
             eyebrow="Or send a message"
@@ -117,7 +117,7 @@ function ContactCard({ accent, heading, children }) {
 function ContactRow({ icon, label, children }) {
   return (
     <li className="flex items-start gap-3">
-      <span className="shrink-0 grid place-items-center h-9 w-9 rounded-full bg-cream-50 border-2 border-ink-950 text-ink-950">
+      <span className="shrink-0 grid place-items-center h-9 w-9 rounded-full bg-ink-950 border-2 border-ink-950 text-cream-50">
         {icon}
       </span>
       <div className="min-w-0 flex-1">

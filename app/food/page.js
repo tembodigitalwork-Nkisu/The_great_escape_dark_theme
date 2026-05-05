@@ -32,15 +32,15 @@ export default function FoodPage() {
         </div>
       </section>
 
-      <section className="relative py-12 sm:py-16 bg-escape-yellow border-y-2 border-ink-950">
+      <section className="relative py-12 sm:py-16 bg-escape-yellow text-ink-950 border-y-2 border-ink-950">
         <div className="mx-auto max-w-6xl px-4 sm:px-6">
-          <div className="rounded-3xl bg-cream-50 border-2 border-ink-950 p-6 sm:p-8 shadow-pop relative overflow-hidden">
-            <div className="absolute -top-10 -right-10 h-40 w-40 rounded-full bg-escape-yellow/40" />
+          <div className="rounded-3xl bg-ink-950 text-cream-50 border-2 border-ink-950 p-6 sm:p-8 shadow-pop relative overflow-hidden">
+            <div className="absolute -top-10 -right-10 h-40 w-40 rounded-full bg-escape-yellow/20" />
             <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-escape-red">Promo · Wednesdays only</p>
             <h2 className="mt-2 font-display font-bold text-3xl sm:text-4xl tracking-tight">
               Freewheelin' Wednesday: K100 played, K50 fed.
             </h2>
-            <p className="mt-3 max-w-xl text-ink-950/75">
+            <p className="mt-3 max-w-xl text-cream-50/75">
               Every K100 you spend on games on Wednesdays earns you a K50 food voucher in-house.
               Stack it. Use it. Eat well.
             </p>
@@ -56,32 +56,28 @@ export default function FoodPage() {
                 <span className="bg-escape-red text-cream-50 border-2 border-ink-950 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider shadow-popSm">
                   {heading}
                 </span>
-                <span className="h-px flex-1 bg-ink-950/15" />
+                <span className="h-px flex-1 bg-cream-50/15" />
               </div>
               <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-5">
                 {items.map((item) => (
-                  <article key={item.name} className="rounded-3xl border-2 border-ink-950 bg-cream-50 p-6 shadow-popSm">
+                  <article key={item.name} className="rounded-3xl border border-cream-50/15 bg-ink-900 p-6 hover:border-escape-yellow/60 transition">
                     <div className="flex items-start justify-between gap-3">
-                      <h3 className="font-display font-bold text-xl">{item.name}</h3>
+                      <h3 className="font-display font-bold text-xl text-cream-50">{item.name}</h3>
                       <span className="shrink-0 bg-escape-yellow text-ink-950 border-2 border-ink-950 rounded-full px-3 py-1 text-sm font-bold">
                         K{item.price}
                       </span>
                     </div>
-                    <p className="mt-2 text-ink-950/75 text-sm">{item.desc}</p>
+                    <p className="mt-2 text-cream-50/70 text-sm">{item.desc}</p>
                   </article>
                 ))}
               </div>
             </div>
           ))}
 
-          <p className="text-center text-xs text-ink-950/50">
-            [Sample of the menu. Drinks list, sides, and full options confirmed in-venue.]
-          </p>
-
           <div className="text-center">
             <Link
               href="/contact"
-              className="inline-flex items-center gap-2 rounded-full px-6 py-3 font-bold bg-ink-950 text-cream-50 border-2 border-ink-950 shadow-popSm hover:translate-y-[2px] hover:shadow-none transition"
+              className="inline-flex items-center gap-2 rounded-full px-6 py-3 font-bold bg-escape-yellow text-ink-950 border-2 border-ink-950 shadow-pop hover:translate-y-[3px] hover:shadow-popSm transition"
             >
               Find us at Longacres →
             </Link>

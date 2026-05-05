@@ -1,6 +1,6 @@
 export default function SectionHeader({ eyebrow, title, subtitle, accent = "yellow", center = true }) {
   const accentBg = {
-    yellow: "bg-escape-yellow",
+    yellow: "bg-escape-yellow text-ink-950",
     red: "bg-escape-red text-cream-50",
     blue: "bg-escape-blue text-cream-50",
     green: "bg-escape-green text-cream-50",
@@ -13,10 +13,10 @@ export default function SectionHeader({ eyebrow, title, subtitle, accent = "yell
           {eyebrow}
         </span>
       )}
-      <h2 className="mt-4 font-display font-bold text-3xl sm:text-5xl tracking-tight text-ink-950">
+      <h2 className="mt-4 font-display font-bold text-3xl sm:text-5xl tracking-tight text-cream-50">
         {title}
       </h2>
-      {subtitle && <p className="mt-4 text-ink-950/70 text-lg">{subtitle}</p>}
+      {subtitle && <p className="mt-4 text-cream-50/70 text-lg">{subtitle}</p>}
     </div>
   );
 }

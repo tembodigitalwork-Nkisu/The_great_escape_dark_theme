@@ -4,11 +4,11 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        // Brand palette — pulled from the Great Escape promo posters.
         ink: {
           950: "#0c0c0c",
-          900: "#141414",
+          900: "#161616",
           800: "#1f1f1f",
+          700: "#2a2a2a",
         },
         cream: {
           50: "#fffdf3",
@@ -20,7 +20,6 @@ module.exports = {
           blue: "#1B47DC",
           blueDeep: "#0F2EA0",
           green: "#28B845",
-          orange: "#FF7A1A",
         },
       },
       fontFamily: {
@@ -28,9 +27,16 @@ module.exports = {
         display: ["var(--font-display)", "ui-sans-serif", "system-ui", "sans-serif"],
       },
       boxShadow: {
+        // Dark offset — for use on yellow / cream / colour-block surfaces
+        // where a black drop reads as a chiselled comic outline.
         pop: "0 6px 0 0 #0c0c0c",
         popSm: "0 4px 0 0 #0c0c0c",
-        glow: "0 0 24px rgba(252, 212, 0, 0.45)",
+        // Light offset — for use on dark surfaces where a black drop would
+        // disappear into the page.
+        popLight: "0 6px 0 0 #fffdf3",
+        popLightSm: "0 4px 0 0 #fffdf3",
+        // Yellow glow for highlighted dark cards.
+        glow: "0 0 28px rgba(252, 212, 0, 0.35)",
       },
       keyframes: {
         bob: {

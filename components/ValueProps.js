@@ -32,13 +32,13 @@ export default function ValueProps() {
     <section className="relative py-20 sm:py-28">
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <div className="text-center max-w-2xl mx-auto">
-          <span className="inline-block bg-escape-yellow border-2 border-ink-950 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider shadow-popSm">
+          <span className="inline-block bg-escape-yellow text-ink-950 border-2 border-ink-950 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider shadow-popSm">
             What's on
           </span>
-          <h2 className="mt-4 font-display font-bold text-3xl sm:text-5xl tracking-tight">
+          <h2 className="mt-4 font-display font-bold text-3xl sm:text-5xl tracking-tight text-cream-50">
             Four floors of fun, no kidding.
           </h2>
-          <p className="mt-4 text-ink-950/70 text-lg">
+          <p className="mt-4 text-cream-50/70 text-lg">
             Headline attractions you won't find anywhere else in Lusaka — plus the classics
             for when you just want to bowl, race, or hand a token to a kid and breathe.
           </p>
@@ -48,13 +48,13 @@ export default function ValueProps() {
           {props.map((p) => (
             <article
               key={p.title}
-              className="group rounded-3xl border-2 border-ink-950 bg-cream-50 p-6 shadow-pop hover:translate-y-[3px] hover:shadow-popSm transition"
+              className="group rounded-3xl border border-cream-50/10 bg-ink-900 p-6 transition hover:border-escape-yellow/60 hover:-translate-y-1"
             >
               <span className={`grid place-items-center h-14 w-14 rounded-2xl ${p.accent} border-2 border-ink-950 text-ink-950`}>
                 {p.icon}
               </span>
-              <h3 className="mt-5 font-display font-bold text-xl">{p.title}</h3>
-              <p className="mt-2 text-sm text-ink-950/70">{p.blurb}</p>
+              <h3 className="mt-5 font-display font-bold text-xl text-cream-50">{p.title}</h3>
+              <p className="mt-2 text-sm text-cream-50/65">{p.blurb}</p>
             </article>
           ))}
         </div>
@@ -62,7 +62,7 @@ export default function ValueProps() {
         <div className="mt-10 text-center">
           <Link
             href="/attractions"
-            className="inline-flex items-center gap-2 rounded-full px-5 py-2.5 font-bold bg-cream-50 border-2 border-ink-950 hover:bg-ink-950 hover:text-cream-50 transition"
+            className="inline-flex items-center gap-2 rounded-full px-5 py-2.5 font-bold bg-ink-900 text-cream-50 border-2 border-cream-50 hover:bg-cream-50 hover:text-ink-950 transition"
           >
             See all attractions →
           </Link>

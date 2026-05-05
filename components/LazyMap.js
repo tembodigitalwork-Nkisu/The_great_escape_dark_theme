@@ -27,7 +27,7 @@ export default function LazyMap() {
       type="button"
       onClick={() => setLoaded(true)}
       aria-label="Load interactive map of The Great Escape"
-      className="absolute inset-0 w-full h-full grid place-items-center dots-soft bg-cream-100 hover:bg-cream-50 transition group"
+      className="absolute inset-0 w-full h-full grid place-items-center dots-soft bg-ink-900 hover:bg-ink-800 transition group"
     >
       <div className="flex flex-col items-center gap-3 text-center px-4">
         <span className="grid place-items-center h-14 w-14 rounded-full bg-escape-yellow border-2 border-ink-950 shadow-popSm group-hover:translate-y-[2px] group-hover:shadow-none transition">
@@ -37,8 +37,8 @@ export default function LazyMap() {
           </svg>
         </span>
         <div>
-          <p className="font-display font-bold text-ink-950">View on map</p>
-          <p className="text-xs text-ink-950/60 mt-1">Tap to load Google Maps</p>
+          <p className="font-display font-bold text-cream-50">View on map</p>
+          <p className="text-xs text-cream-50/60 mt-1">Tap to load Google Maps</p>
         </div>
       </div>
     </button>

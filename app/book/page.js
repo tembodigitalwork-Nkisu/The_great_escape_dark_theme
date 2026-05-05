@@ -21,9 +21,6 @@ export default function BookPage() {
           <div className="mt-10">
             <BookingForm />
           </div>
-          <p className="mt-6 text-center text-xs text-ink-950/50">
-            [Submissions currently open WhatsApp or your email client. Live availability and online payment in phase 2.]
-          </p>
         </div>
       </section>
     </main>

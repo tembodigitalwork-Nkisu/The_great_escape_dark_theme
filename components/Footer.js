@@ -29,13 +29,11 @@ const socials = [
 
 export default function Footer() {
   return (
-    <footer className="bg-ink-950 text-cream-50 mt-16">
+    <footer className="bg-ink-900 text-cream-50 mt-16 border-t border-cream-50/10">
       <div className="mx-auto max-w-6xl px-4 sm:px-6 py-12 grid lg:grid-cols-5 gap-10">
         <div className="lg:col-span-2">
-          <div className="bg-cream-50 inline-block rounded-xl px-4 py-3">
-            <Logo className="h-14 w-auto" />
-          </div>
-          <p className="mt-5 text-cream-50/75 max-w-sm">
+          <Logo className="h-14 w-auto" />
+          <p className="mt-5 text-cream-50/70 max-w-sm">
             Where reality takes a break. Zambia's most advanced indoor gaming arena —
             VR, golf simulator, bowling, and more, at Longacres Mall, Lusaka.
           </p>
@@ -63,13 +61,13 @@ export default function Footer() {
               {items.map((i) =>
                 i.external ? (
                   <li key={i.label}>
-                    <a href={i.href} target="_blank" rel="noreferrer" className="text-cream-50/80 hover:text-escape-yellow">
+                    <a href={i.href} target="_blank" rel="noreferrer" className="text-cream-50/75 hover:text-escape-yellow">
                       {i.label} →
                     </a>
                   </li>
                 ) : (
                   <li key={i.label}>
-                    <Link href={i.href} className="text-cream-50/80 hover:text-escape-yellow">
+                    <Link href={i.href} className="text-cream-50/75 hover:text-escape-yellow">
                       {i.label}
                     </Link>
                   </li>

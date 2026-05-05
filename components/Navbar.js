@@ -32,7 +32,7 @@ export default function Navbar() {
     href === "/" ? pathname === "/" : pathname === href || pathname.startsWith(href + "/");
 
   return (
-    <header className="sticky top-0 z-40 bg-cream-50/95 backdrop-blur border-b-2 border-ink-950">
+    <header className="sticky top-0 z-40 bg-ink-950/85 backdrop-blur border-b border-cream-50/10">
       <nav className="mx-auto max-w-6xl px-4 sm:px-6 h-16 flex items-center justify-between gap-4">
         <Link href="/" className="flex items-center group" aria-label="The Great Escape — home">
           <Logo className="h-10 w-auto" priority />
@@ -47,7 +47,7 @@ export default function Navbar() {
                 href={l.href}
                 aria-current={active ? "page" : undefined}
                 className={`text-sm font-semibold transition relative ${
-                  active ? "text-ink-950" : "text-ink-950/70 hover:text-ink-950"
+                  active ? "text-cream-50" : "text-cream-50/60 hover:text-cream-50"
                 }`}
               >
                 {l.label}
@@ -66,23 +66,23 @@ export default function Navbar() {
         </div>
 
         <button
-          aria-label="Toggle menu"
+          aria-label={open ? "Close menu" : "Open menu"}
           aria-expanded={open}
           aria-controls="mobile-menu"
           onClick={() => setOpen((o) => !o)}
-          className="lg:hidden inline-flex items-center justify-center h-10 w-10 rounded-md border-2 border-ink-950 bg-cream-50"
+          className="lg:hidden inline-flex items-center justify-center h-10 w-10 rounded-md border-2 border-cream-50/30 bg-ink-900"
         >
-          <span className="sr-only">Menu</span>
+          <span className="sr-only">{open ? "Close menu" : "Open menu"}</span>
           <div className="space-y-1.5">
-            <span className={`block h-0.5 w-5 bg-ink-950 transition ${open ? "translate-y-2 rotate-45" : ""}`} />
-            <span className={`block h-0.5 w-5 bg-ink-950 transition ${open ? "opacity-0" : ""}`} />
-            <span className={`block h-0.5 w-5 bg-ink-950 transition ${open ? "-translate-y-2 -rotate-45" : ""}`} />
+            <span className={`block h-0.5 w-5 bg-cream-50 transition ${open ? "translate-y-2 rotate-45" : ""}`} />
+            <span className={`block h-0.5 w-5 bg-cream-50 transition ${open ? "opacity-0" : ""}`} />
+            <span className={`block h-0.5 w-5 bg-cream-50 transition ${open ? "-translate-y-2 -rotate-45" : ""}`} />
           </div>
         </button>
       </nav>
 
       {open && (
-        <div id="mobile-menu" className="lg:hidden border-t-2 border-ink-950 bg-cream-50">
+        <div id="mobile-menu" className="lg:hidden border-t border-cream-50/10 bg-ink-950">
           <div className="px-4 py-4 flex flex-col gap-2">
             {links.map((l) => {
               const active = isActive(l.href);
@@ -92,7 +92,7 @@ export default function Navbar() {
                   href={l.href}
                   aria-current={active ? "page" : undefined}
                   className={`py-2.5 px-3 rounded-lg font-semibold ${
-                    active ? "bg-escape-yellow text-ink-950" : "text-ink-950 hover:bg-ink-950/5"
+                    active ? "bg-escape-yellow text-ink-950" : "text-cream-50 hover:bg-cream-50/5"
                   }`}
                 >
                   {l.label}

@@ -4,7 +4,7 @@ const promos = [
   {
     title: "Freewheelin' Wednesday",
     desc: "Spend K100 on games, get a K50 food voucher. Every Wednesday, on the house.",
-    accent: "bg-escape-yellow",
+    accent: "bg-escape-yellow text-ink-950",
     cta: { label: "See the menu", href: "/food" },
   },
   {
@@ -30,7 +30,7 @@ export default function PromoStrip() {
             <p className="mt-3 text-base opacity-90 max-w-md">{p.desc}</p>
             <Link
               href={p.cta.href}
-              className="mt-5 inline-flex items-center gap-2 rounded-full px-4 py-2 font-bold bg-cream-50 text-ink-950 border-2 border-ink-950 shadow-popSm hover:translate-y-[2px] hover:shadow-none transition"
+              className="mt-5 inline-flex items-center gap-2 rounded-full px-4 py-2 font-bold bg-ink-950 text-cream-50 border-2 border-ink-950 hover:bg-cream-50 hover:text-ink-950 transition"
             >
               {p.cta.label} →
             </Link>

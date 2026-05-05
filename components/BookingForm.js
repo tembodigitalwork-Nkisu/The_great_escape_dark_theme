@@ -67,7 +67,7 @@ function BookingFormInner() {
   return (
     <form
       onSubmit={(e) => e.preventDefault()}
-      className="rounded-3xl border-2 border-ink-950 bg-cream-50 shadow-pop p-6 sm:p-8 grid grid-cols-1 sm:grid-cols-2 gap-4"
+      className="rounded-3xl border-2 border-cream-50 bg-ink-900 shadow-popLight p-6 sm:p-8 grid grid-cols-1 sm:grid-cols-2 gap-4"
     >
       <Field label="Your name">
         <input type="text" required value={form.name} onChange={update("name")} placeholder="Full name" className={inputClass} />
@@ -78,7 +78,7 @@ function BookingFormInner() {
       <Field label="What for?">
         <select value={form.type} onChange={update("type")} className={inputClass}>
           {types.map((t) => (
-            <option key={t} value={t}>{t}</option>
+            <option key={t} value={t} className="bg-ink-900 text-cream-50">{t}</option>
           ))}
         </select>
       </Field>
@@ -103,7 +103,7 @@ function BookingFormInner() {
         </a>
         <a
           href={mailto()}
-          className="flex-1 text-center rounded-full px-5 py-3 font-bold bg-cream-50 border-2 border-ink-950 hover:bg-ink-950 hover:text-cream-50 transition"
+          className="flex-1 text-center rounded-full px-5 py-3 font-bold bg-ink-900 text-cream-50 border-2 border-cream-50 hover:bg-cream-50 hover:text-ink-950 transition"
         >
           Send via Email
         </a>
@@ -114,19 +114,19 @@ function BookingFormInner() {
 
 export default function BookingForm() {
   return (
-    <Suspense fallback={<div className="rounded-3xl border-2 border-ink-950 bg-cream-50 p-8 text-center text-ink-950/50">Loading form…</div>}>
+    <Suspense fallback={<div className="rounded-3xl border-2 border-cream-50 bg-ink-900 p-8 text-center text-cream-50/50">Loading form…</div>}>
       <BookingFormInner />
     </Suspense>
   );
 }
 
 const inputClass =
-  "w-full rounded-xl bg-cream-50 border-2 border-ink-950 px-3 py-2.5 text-ink-950 placeholder-ink-950/40 focus:outline-none focus:ring-4 focus:ring-escape-yellow/60 transition";
+  "w-full rounded-xl bg-ink-800 border-2 border-cream-50/20 px-3 py-2.5 text-cream-50 placeholder-cream-50/35 focus:outline-none focus:border-escape-yellow focus:ring-4 focus:ring-escape-yellow/40 transition";
 
 function Field({ label, full, children }) {
   return (
     <label className={`flex flex-col gap-1.5 ${full ? "sm:col-span-2" : ""}`}>
-      <span className="text-xs font-bold uppercase tracking-wider text-ink-950/70">{label}</span>
+      <span className="text-xs font-bold uppercase tracking-wider text-cream-50/65">{label}</span>
       {children}
     </label>
   );
